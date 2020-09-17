@@ -48,6 +48,25 @@ namespace yoketoruvs20
         public gameoverLabel()
         {
             InitializeComponent();
+
+            for (int i=0; i < ChrMax;i++)
+            {
+                chrs[i] = new Label();
+                chrs[i].AutoSize = true;
+                if(i == PlayerIndex)
+                {
+                    chrs[i].Text = PlayerText;
+                }
+                else if (i < ItemIndex)
+                {
+                    chrs[i].Text = EnemyText;
+                }
+                else
+                {
+                    chrs[i].Text = ItemText;
+                }
+                Controls.Add(chrs[i]);
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -71,6 +90,24 @@ namespace yoketoruvs20
                 else if(GetAsyncKeyState((int)Keys.C) < 0)
                 {
                     nextState = State.Clear;
+                }
+            }
+
+            if(curerentState == State.Game)
+            {
+                UpdateGame();
+            }
+        }
+
+        void UpdateGame()
+        {
+            Point mp = PointToClient(MousePosition);
+            for (int i = 0; i < ChrMax; i++)
+            {
+                if (i == PlayerIndex)
+                {
+                    chrs[i].Left = mp.X - chrs[i].Width / 2;
+                    chrs[i].Top = mp.Y - chrs[i].Height / 2;
                 }
             }
         }
