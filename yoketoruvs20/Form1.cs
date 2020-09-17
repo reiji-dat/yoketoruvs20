@@ -42,6 +42,10 @@ namespace yoketoruvs20
         State curerentState = State.None;
         State nextState = State.Title;
 
+        const int SpeedMax = 20;
+        int[] vx = new int[ChrMax];
+        int[] vy = new int[ChrMax];
+
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(int vKey);
 
@@ -126,6 +130,7 @@ namespace yoketoruvs20
                     goLabel.Visible = false;
                     titleButton.Visible = false;
                     clearLabel.Visible = false;
+                    for(int i = 0; i < ChrMax; i++) chrs[i].Visible = false;
                     break;
 
                 case State.Game:
@@ -133,6 +138,12 @@ namespace yoketoruvs20
                     stertButton.Visible = false;
                     copyrightLabel.Visible = false;
                     hiLabel.Visible = false;
+                    for (int i = 0; i < ChrMax; i++) chrs[i].Visible = true;
+                    for (int i = EnemyIndex; i < ChrMax; i++)
+                    {
+                        chrs[i].Left = rand.Next(ClientSize.Width - chrs[i].Width);
+                        chrs[i].Top = rand.Next(ClientSize.Height - chrs[i].Height);
+                    }
                     break;
 
                 case State.Gameover:
