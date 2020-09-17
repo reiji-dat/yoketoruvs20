@@ -61,6 +61,7 @@
             this.stertButton.TabIndex = 1;
             this.stertButton.Text = "START";
             this.stertButton.UseVisualStyleBackColor = true;
+            this.stertButton.Click += new System.EventHandler(this.stertButton_Click);
             // 
             // copyrightLabel
             // 
@@ -137,6 +138,7 @@
             this.titleButton.TabIndex = 8;
             this.titleButton.Text = "TITLE";
             this.titleButton.UseVisualStyleBackColor = true;
+            this.titleButton.Click += new System.EventHandler(this.titleButton_Click);
             // 
             // gameoverLabel
             // 
