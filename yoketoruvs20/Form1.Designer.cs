@@ -89,9 +89,9 @@
             this.hiLabel.Font = new System.Drawing.Font("BIZ UDゴシック", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hiLabel.Location = new System.Drawing.Point(243, 171);
             this.hiLabel.Name = "hiLabel";
-            this.hiLabel.Size = new System.Drawing.Size(444, 64);
+            this.hiLabel.Size = new System.Drawing.Size(380, 64);
             this.hiLabel.TabIndex = 4;
-            this.hiLabel.Text = "HighScore 100";
+            this.hiLabel.Text = "HighScore 0";
             // 
             // itemLabel
             // 
@@ -106,7 +106,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 32;
+            this.timer1.Interval = 50;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // goLabel
