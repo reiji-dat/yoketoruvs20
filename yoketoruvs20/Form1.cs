@@ -70,6 +70,7 @@ namespace yoketoruvs20
                     chrs[i].Text = ItemText;
                 }
                 Controls.Add(chrs[i]);
+                chrs[i].Font = tempLabel.Font;
             }
         }
 
@@ -130,6 +131,11 @@ namespace yoketoruvs20
                 if (chrs[i].Bottom > ClientSize.Height)
                 {
                     vy[i] = -Math.Abs(vy[i]);
+                }
+
+                if(chrs[i].Left <= mp.X && chrs[i].Top <= mp.Y && chrs[i].Right >= mp.X && chrs[i].Bottom >= mp.Y)
+                {
+                    MessageBox.Show("重なった");
                 }
             }
         }

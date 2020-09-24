@@ -39,6 +39,7 @@
             this.goLabel = new System.Windows.Forms.Label();
             this.clearLabel = new System.Windows.Forms.Label();
             this.titleButton = new System.Windows.Forms.Button();
+            this.tempLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -141,12 +142,24 @@
             this.titleButton.UseVisualStyleBackColor = true;
             this.titleButton.Click += new System.EventHandler(this.titleButton_Click);
             // 
+            // tempLabel
+            // 
+            this.tempLabel.AutoSize = true;
+            this.tempLabel.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.tempLabel.Location = new System.Drawing.Point(623, 108);
+            this.tempLabel.Name = "tempLabel";
+            this.tempLabel.Size = new System.Drawing.Size(47, 33);
+            this.tempLabel.TabIndex = 9;
+            this.tempLabel.Text = "卍";
+            this.tempLabel.Visible = false;
+            // 
             // gameoverLabel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tempLabel);
             this.Controls.Add(this.titleButton);
             this.Controls.Add(this.clearLabel);
             this.Controls.Add(this.goLabel);
@@ -175,6 +188,7 @@
         private System.Windows.Forms.Label goLabel;
         private System.Windows.Forms.Label clearLabel;
         private System.Windows.Forms.Button titleButton;
+        private System.Windows.Forms.Label tempLabel;
     }
 }
 
