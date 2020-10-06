@@ -31,7 +31,10 @@ namespace yoketoruvs20
         int itemCount;
         bool[] getItem = new bool[ChrMax];
 
+        //初期タイム
         const int TimeMax = 300;
+        //無敵時間
+        const int InvTime = 10;
         int time;
 
         int highscore = 0;
@@ -122,13 +125,13 @@ namespace yoketoruvs20
 
             itemLabel.Text = "★：" + itemCount;
 
-            if(itemCount <= 0)
-            {
-                nextState = State.Clear;
-            }
+            //アイテムが0個になるとクリア
+            if(itemCount <= 0) nextState = State.Clear;
 
             time--;
             timeLabel.Text = "TIME " + time;
+
+            //タイマーが0になるとゲームオーバー
             if (time <= 0) nextState = State.Gameover;
 
             //ここに移動処理関数
@@ -160,9 +163,10 @@ namespace yoketoruvs20
                 {
                     if(i < ItemIndex)
                     {
-                        nextState = State.Gameover;
+                        //もしタイムが(初期タイム-無敵時間)未満ならゲームオーバー
+                        if(time < TimeMax - InvTime) nextState = State.Gameover;
                     }
-                    else if(!getItem[i])
+                    else if(!getItem[i])//既にゲットしたアイテム以外でゲットしたらゲット判定を行う
                     {
                         getItem[i] = true;
                         chrs[i].Visible = false;
@@ -221,6 +225,7 @@ namespace yoketoruvs20
                     clearLabel.Visible = true;
                     titleButton.Visible = true;
                     hiLabel.Visible = true;
+                    //もしタイムがハイスコアより多ければハイスコアはタイムになる
                     if (time > highscore) highscore = time;
                     hiLabel.Text = "HighScore" + highscore;
                     break;
@@ -235,6 +240,11 @@ namespace yoketoruvs20
         private void titleButton_Click(object sender, EventArgs e)
         {
             nextState = State.Title;
+        }
+
+        private void gameoverLabel_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

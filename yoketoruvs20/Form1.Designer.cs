@@ -106,7 +106,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 50;
+            this.timer1.Interval = 75;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // goLabel
@@ -171,6 +171,7 @@
             this.Controls.Add(this.titleLabel);
             this.Name = "gameoverLabel";
             this.Text = "YOKETORU";
+            this.Load += new System.EventHandler(this.gameoverLabel_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
