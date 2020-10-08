@@ -134,6 +134,10 @@ namespace yoketoruvs20
             //タイマーが0になるとゲームオーバー
             if (time <= 0) nextState = State.Gameover;
 
+            //無敵時間はプレイヤーを半透明にした。
+            if (time < TimeMax - InvTime) chrs[PlayerIndex].Enabled = true;
+            else chrs[PlayerIndex].Enabled = false;
+
             //ここに移動処理関数
             for (int i = EnemyIndex; i < ChrMax; i++)
             {
