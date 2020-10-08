@@ -176,6 +176,13 @@ namespace yoketoruvs20
                         chrs[i].Visible = false;
                         itemCount--;
                     }
+                    /* 上よりスマートな方法(上の方法と比べるとgetItem変数が一つ減る)
+                    else if(chrs[i].Visible)
+                    {
+                        chrs[i].Visible = false;
+                        itemCount--;
+                    }
+                     */
                 }
             }
         }
